@@ -14,8 +14,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+
+import java.util.ArrayList;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    BarChart stepsbarchart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +41,43 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        generateTemporaryGraph();
+
+    }
+    //funtion to generate temporary bar graph
+    public void generateTemporaryGraph(){
+
+        stepsbarchart = findViewById(R.id.steps_bargraph);
+
+        ArrayList<BarEntry> barEntries = new ArrayList<>();
+        barEntries.add(new BarEntry(0,180f ));
+        barEntries.add(new BarEntry(1,730f ));
+        barEntries.add(new BarEntry(2,590f ));
+        barEntries.add(new BarEntry(3,830f ));
+        barEntries.add(new BarEntry(4,640f ));
+        barEntries.add(new BarEntry(5,330f ));
+        barEntries.add(new BarEntry(6,220f ));
+
+        BarDataSet bardataset = new BarDataSet(barEntries , "Steps");
+//        ArrayList<String> dates = new ArrayList<>();
+//        dates.add("1/10/2019");
+//        dates.add("2/10/2019");
+//        dates.add("3/10/2019");
+//        dates.add("4/10/2019");
+//        dates.add("5/10/2019");
+//        dates.add("6/10/2019");
+//        dates.add("7/10/2019");
+
+        BarData bardata = new BarData(bardataset);
+        bardata.setBarWidth(0.9f);
+        stepsbarchart.setData(bardata);
+        stepsbarchart.setTouchEnabled(true);
+        stepsbarchart.setDragEnabled(true);
+        stepsbarchart.setScaleEnabled(true);
+
+
+
     }
 
     @Override
