@@ -60,21 +60,19 @@ public class MainActivity extends AppCompatActivity
         barEntries.add(new BarEntry(6,220f ));
 
         BarDataSet bardataset = new BarDataSet(barEntries , "Steps");
-//        ArrayList<String> dates = new ArrayList<>();
-//        dates.add("1/10/2019");
-//        dates.add("2/10/2019");
-//        dates.add("3/10/2019");
-//        dates.add("4/10/2019");
-//        dates.add("5/10/2019");
-//        dates.add("6/10/2019");
-//        dates.add("7/10/2019");
+        String [] dates = new String[]{"01/10/2019","02/10/2019","03/10/2019","04/10/2019","05/10/2019","06/10/2019","07/10/2019"};
+
 
         BarData bardata = new BarData(bardataset);
         bardata.setBarWidth(0.9f);
+        bardata.setValueTextSize(12);
+
+
         stepsbarchart.setData(bardata);
         stepsbarchart.setTouchEnabled(true);
         stepsbarchart.setDragEnabled(true);
         stepsbarchart.setScaleEnabled(true);
+        stepsbarchart.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
 
 
 
