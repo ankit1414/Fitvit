@@ -13,6 +13,7 @@ public final class StepsContract {
 
 
         public static final String COLUMN_DATE = "date";
+
         public static final String COLUMN_STEPS = "steps";
 
 

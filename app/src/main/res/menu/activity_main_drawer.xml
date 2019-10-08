@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
@@ -7,7 +8,9 @@
         <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_menu_profile"
-            android:title="@string/menu_profile" />
+            android:title="Profile"
+
+            />
         <item
             android:id="@+id/nav_bmi"
             android:icon="@drawable/ic_menu_bmi"
@@ -19,10 +22,14 @@
         <item
             android:id="@+id/nav_exercise"
             android:icon="@drawable/ic_menu_exercise"
-            android:title="@string/menu_exercise" />
+            android:title="@string/menu_exercise"
+           />
     </group>
 
-    <item android:title="Communicate">
+    <item
+        android:title="Communicate"
+        android:id="@+id/communicate"
+        >
         <menu>
             <item
                 android:id="@+id/nav_share"

@@ -11,106 +11,111 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:padding="10dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="10dp">
 
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="159dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-
-            android:textSize="30sp"
+            android:layout_height="60sp"
+            android:background="#000000"
+            android:padding="3sp"
             android:text="Steps"
-            android:background="@android:color/holo_blue_bright"
-            android:textColor="@android:color/black"
-            />
+            android:layout_marginRight="2sp"
+            android:textIsSelectable="false"
+            android:shadowColor="@android:color/holo_blue_bright"
+            android:shadowDx="0.0"
+            android:shadowDy="0.0"
+            android:shadowRadius="30"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textSize="40sp" />
+
         <TextView
-            android:layout_width="0dp"
-            android:id="@+id/tv_steps"
-            android:layout_height="match_parent"
-            android:textSize="30sp"
-            android:background="@android:color/holo_orange_dark"
+            android:layout_width="159sp"
+            android:layout_height="60sp"
+            android:background="#000000"
             android:gravity="center"
             android:layout_weight="1"
-            android:textColor="@android:color/black"
-            android:text = "00"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:padding="10dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-
-            android:textSize="30sp"
-            android:text="Calories burnt"
-            android:background="@android:color/holo_blue_bright"
-            android:textColor="@android:color/black"
-            />
-        <TextView
-            android:layout_width="0dp"
-            android:id="@+id/tv_calories_burnt"
-            android:layout_height="match_parent"
-            android:textSize="30sp"
-            android:background="@android:color/holo_orange_dark"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:textColor="@android:color/black"
-            android:text = "00"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:padding="10dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-
-            android:textSize="30sp"
             android:text="BMI"
-            android:background="@android:color/holo_blue_bright"
-            android:textColor="@android:color/black"
+            android:textIsSelectable="false"
+            android:shadowColor="@android:color/holo_blue_bright"
+            android:shadowDx="0.0"
+            android:shadowDy="0.0"
+            android:shadowRadius="30"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textSize="40sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/tv_steps"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textIsSelectable="false"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            android:text="00"
+            android:textAlignment="center"
+            android:background="#000000"
+            android:textColor="#FFFFFF"
             />
         <TextView
             android:layout_width="0dp"
             android:id="@+id/tv_bmi"
             android:layout_height="match_parent"
-            android:textSize="30sp"
-            android:background="@android:color/holo_orange_dark"
+            android:textSize="35sp"
+            android:background="#000000"
             android:gravity="center"
             android:layout_weight="1"
-            android:textColor="@android:color/black"
+            android:textIsSelectable="false"
+            android:textColor="#FFFFFF"
             android:text = "00"
             />
 
     </LinearLayout>
 
-    <com.github.mikephil.charting.charts.BarChart
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:id="@+id/steps_bargraph"
-        android:layout_weight="1"
-        android:layout_margin="10dp"
-        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="10sp"
+        android:text="Calorie Burnt"
+        android:textStyle="bold"
+        android:textIsSelectable="false"
+        android:shadowColor="@android:color/holo_blue_bright"
+        android:shadowDx="0.0"
+        android:shadowDy="0.0"
+        android:shadowRadius="30"
+        android:background="#000000"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textSize="50sp" />
 
+    <TextView
+        android:id="@+id/tv_calories_burnt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="00"
+        android:textIsSelectable="false"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp" />
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/steps_bargraph"
+        android:layout_width="match_parent"
+        android:layout_height="413dp">
+    </com.github.mikephil.charting.charts.BarChart>
 
 
 </LinearLayout>

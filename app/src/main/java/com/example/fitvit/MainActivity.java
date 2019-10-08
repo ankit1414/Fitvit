@@ -1,5 +1,6 @@
 package com.example.fitvit;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity
         stepsbarchart = findViewById(R.id.steps_bargraph);
 
         ArrayList<BarEntry> barEntries = new ArrayList<>();
+
         barEntries.add(new BarEntry(0,180f ));
         barEntries.add(new BarEntry(1,730f ));
         barEntries.add(new BarEntry(2,590f ));
@@ -58,7 +60,6 @@ public class MainActivity extends AppCompatActivity
         barEntries.add(new BarEntry(4,640f ));
         barEntries.add(new BarEntry(5,330f ));
         barEntries.add(new BarEntry(6,220f ));
-
         BarDataSet bardataset = new BarDataSet(barEntries , "Steps");
         String [] dates = new String[]{"01/10/2019","02/10/2019","03/10/2019","04/10/2019","05/10/2019","06/10/2019","07/10/2019"};
 
@@ -66,16 +67,18 @@ public class MainActivity extends AppCompatActivity
         BarData bardata = new BarData(bardataset);
         bardata.setBarWidth(0.9f);
         bardata.setValueTextSize(12);
-
+        int whiteColorValue = Color.WHITE;
+        bardataset.setValueTextColor(whiteColorValue);
 
         stepsbarchart.setData(bardata);
         stepsbarchart.setTouchEnabled(true);
         stepsbarchart.setDragEnabled(true);
         stepsbarchart.setScaleEnabled(true);
-        stepsbarchart.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
-
-
-
+        stepsbarchart.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
+        stepsbarchart.getXAxis().setTextColor(whiteColorValue);
+        stepsbarchart.getAxisLeft().setDrawGridLines(false);
+        stepsbarchart.getXAxis().setDrawGridLines(false);
+        stepsbarchart.getAxisRight().setDrawGridLines(false);
     }
 
     @Override

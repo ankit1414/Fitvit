@@ -36,3 +36,7 @@ dependencies {
     //for Graph view (MP android charts)
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }
+dependencies{
+    implementation 'com.android.support:design:28.0.0'
+    compile 'com.rom4ek:arcnavigationview:1.0.3'
+}
