@@ -1,6 +1,7 @@
 package com.example.fitvit;
 //<<<<<<< HEAD
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 //=======
 //
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity
     TextView tv_steps;
     Boolean sensor_running = false;
 
+    TextView tv_bmi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +66,8 @@ public class MainActivity extends AppCompatActivity
         tv_steps  = findViewById(R.id.tv_steps);
         sensorManager = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
 
+        tv_bmi = findViewById(R.id.tv_bmi);
+
 
         generateTemporaryGraph();
 
@@ -73,8 +78,13 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
+
+        SharedPreferences sharedPreferences = this.getSharedPreferences("com.example.fitvit",Context.MODE_PRIVATE);
+        tv_bmi.setText(sharedPreferences.getFloat("bmi" , 0)+"");
+
         sensor_running = true;
         Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+
 
         if(countSensor != null) {
             sensorManager.registerListener(this, countSensor, sensorManager.SENSOR_DELAY_UI);
@@ -167,6 +177,8 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_profile) {
             // Handle the camera action
         } else if (id == R.id.nav_bmi) {
+            Intent bmi_intent  = new Intent(MainActivity.this,BMIActivity.class);
+            startActivity(bmi_intent);
 
         } else if (id == R.id.nav_water_reminder) {
 
