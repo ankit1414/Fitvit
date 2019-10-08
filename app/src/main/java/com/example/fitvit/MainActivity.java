@@ -1,5 +1,9 @@
 package com.example.fitvit;
+<<<<<<< HEAD
 import android.graphics.Color;
+=======
+
+>>>>>>> a7e84aeef89a558cd4f3c2f32691e9b83c42c7cc
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
