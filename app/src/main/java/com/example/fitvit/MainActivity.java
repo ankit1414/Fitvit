@@ -1,6 +1,6 @@
 package com.example.fitvit;
-
 import android.graphics.Color;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -124,6 +124,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_bmi) {
 
         } else if (id == R.id.nav_water_reminder) {
+
+            Intent i=new Intent (MainActivity.this,water_main.class);
+            startActivity(i);
 
         } else if (id == R.id.nav_exercise) {
 
