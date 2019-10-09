@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity
     TextView tv_steps;
     Boolean sensor_running = false;
 
+
+    SharedPreferences sharedPreferences;
     TextView tv_bmi;
 
     @Override
@@ -61,6 +63,15 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        sharedPreferences = this.getSharedPreferences("com.example.fitvit" , Context.MODE_PRIVATE);
+        String firstTime = sharedPreferences.getString("firstTime","yes");
+        if(firstTime.equals("yes")){
+            sharedPreferences.edit().putString("firstTime","nope").apply();
+            Intent details = new Intent(MainActivity.this , DetailsActivity.class);
+            startActivity(details);
+
+        }
 
 
         tv_steps  = findViewById(R.id.tv_steps);
@@ -79,7 +90,7 @@ public class MainActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
 
-        SharedPreferences sharedPreferences = this.getSharedPreferences("com.example.fitvit",Context.MODE_PRIVATE);
+        sharedPreferences = this.getSharedPreferences("com.example.fitvit",Context.MODE_PRIVATE);
         tv_bmi.setText(sharedPreferences.getFloat("bmi" , 0)+"");
 
         sensor_running = true;
