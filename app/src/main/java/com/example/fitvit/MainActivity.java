@@ -1,4 +1,8 @@
 package com.example.fitvit;
+<<<<<<< HEAD
+
+import android.graphics.Color;
+=======
 //<<<<<<< HEAD
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -7,6 +11,7 @@ import android.graphics.Color;
 //
 //>>>>>>> a7e84aeef89a558cd4f3c2f32691e9b83c42c7cc
 //
+>>>>>>> c98e3fe6029f4fc4e02bc3e5fa36b034aeaa6e46
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -140,7 +145,7 @@ public class MainActivity extends AppCompatActivity
         stepsbarchart.setTouchEnabled(true);
         stepsbarchart.setDragEnabled(true);
         stepsbarchart.setScaleEnabled(true);
-        stepsbarchart.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
+        stepsbarchart.setBackgroundColor(getResources().getColor(android.R.color.black));
         stepsbarchart.getXAxis().setTextColor(whiteColorValue);
         stepsbarchart.getAxisLeft().setDrawGridLines(false);
         stepsbarchart.getXAxis().setDrawGridLines(false);
