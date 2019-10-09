@@ -1,10 +1,26 @@
 package com.example.fitvit;
+<<<<<<< HEAD
 
 import android.graphics.Color;
+=======
+//<<<<<<< HEAD
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+//=======
+//
+//>>>>>>> a7e84aeef89a558cd4f3c2f32691e9b83c42c7cc
+//
+>>>>>>> c98e3fe6029f4fc4e02bc3e5fa36b034aeaa6e46
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.widget.TextViewCompat;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,6 +31,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
@@ -25,9 +42,17 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener , SensorEventListener {
 
     BarChart stepsbarchart;
+    SensorManager sensorManager;
+
+    TextView tv_steps;
+    Boolean sensor_running = false;
+
+
+    SharedPreferences sharedPreferences;
+    TextView tv_bmi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +69,54 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
+        sharedPreferences = this.getSharedPreferences("com.example.fitvit" , Context.MODE_PRIVATE);
+        String firstTime = sharedPreferences.getString("firstTime","yes");
+        if(firstTime.equals("yes")){
+            sharedPreferences.edit().putString("firstTime","nope").apply();
+            Intent details = new Intent(MainActivity.this , DetailsActivity.class);
+            startActivity(details);
+
+        }
+
+
+        tv_steps  = findViewById(R.id.tv_steps);
+        sensorManager = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
+
+        tv_bmi = findViewById(R.id.tv_bmi);
+
+
         generateTemporaryGraph();
 
+
+
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        sharedPreferences = this.getSharedPreferences("com.example.fitvit",Context.MODE_PRIVATE);
+        tv_bmi.setText(sharedPreferences.getFloat("bmi" , 0)+"");
+
+        sensor_running = true;
+        Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+
+
+        if(countSensor != null) {
+            sensorManager.registerListener(this, countSensor, sensorManager.SENSOR_DELAY_UI);
+        }   else{
+            //sensor not found
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sensor_running = false;
+        //if we unregister the hardware will stop detecting steps
+        //sensorManager.unregisterListener(this);
+    }
+
     //funtion to generate temporary bar graph
     public void generateTemporaryGraph(){
 
@@ -123,6 +193,8 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_profile) {
             // Handle the camera action
         } else if (id == R.id.nav_bmi) {
+            Intent bmi_intent  = new Intent(MainActivity.this,BMIActivity.class);
+            startActivity(bmi_intent);
 
         } else if (id == R.id.nav_water_reminder) {
 
@@ -140,5 +212,18 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        if(sensor_running){
+            tv_steps.setText(String.valueOf(sensorEvent.values[0]));
+        }
+
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
+
     }
 }
