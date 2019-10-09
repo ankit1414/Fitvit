@@ -8,12 +8,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.text.DecimalFormat;
+
 public class DetailsActivity extends AppCompatActivity {
 
     TextInputLayout textInputName;
     TextInputLayout textInputWeightInKg;
     TextInputLayout textInputHeightInCm;
+    TextInputLayout textInputAge;
     Button confirmButton;
+
+    private static DecimalFormat df = new DecimalFormat("0.00");
     SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +29,7 @@ public class DetailsActivity extends AppCompatActivity {
         textInputWeightInKg = findViewById(R.id.weight_til);
         textInputHeightInCm = findViewById(R.id.height_til);
         confirmButton = findViewById(R.id.confirm_button);
+        textInputAge = findViewById(R.id.age_til);
         sharedPreferences = this.getSharedPreferences("com.example.fitvit" , Context.MODE_PRIVATE);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
@@ -32,12 +38,16 @@ public class DetailsActivity extends AppCompatActivity {
                 String name = textInputName.getEditText().getText().toString().trim();
                 float weightInKg = Float.parseFloat(textInputWeightInKg.getEditText().getText().toString().trim());
                 float heightInCm = Float.parseFloat(textInputHeightInCm.getEditText().getText().toString().trim());
-                if(checks(name , weightInKg,heightInCm)){
+                int age = Integer.parseInt(textInputAge.getEditText().getText().toString().trim());
+                if(checks(name , weightInKg,heightInCm , age)){
 
                     sharedPreferences.edit().putString("name" , name).apply();
                     sharedPreferences.edit().putFloat("heightInCm" , heightInCm).apply();
                     sharedPreferences.edit().putFloat("weightInKg" , weightInKg).apply();
+                    sharedPreferences.edit().putInt("age" , age).apply();
                     float bmi = ((weightInKg)/((heightInCm*heightInCm)/(100*100)));
+
+                    bmi = Float.parseFloat(df.format(bmi));
 
                     sharedPreferences.edit().putFloat("bmi" , bmi).apply();
                     finish();
@@ -48,7 +58,7 @@ public class DetailsActivity extends AppCompatActivity {
 
 
     }
-    boolean checks(String name , float weightInkg , float heightInCm){
+    boolean checks(String name , float weightInkg , float heightInCm, float age){
         boolean t = true;
         if(name.isEmpty()){
             textInputName.setError("Field can't be empty.");
@@ -77,6 +87,10 @@ public class DetailsActivity extends AppCompatActivity {
 
         } else{
             textInputHeightInCm.setError(null);
+        }
+        if(age <= 0){
+            textInputAge.setError("Invalid age");
+            t = false;
         }
         return  t;
 
