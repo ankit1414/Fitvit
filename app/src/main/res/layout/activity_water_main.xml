@@ -13,6 +13,15 @@
         android:baselineAligned="false"
         android:orientation="vertical">
 
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Allow Alerts "
+            android:textSize="20sp"
+            android:textColor="@android:color/white"/>
+
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
@@ -76,13 +85,7 @@
                 android:textSize="30dp" />
         </LinearLayout>
 
-        <Switch
-            android:id="@+id/switch1"
-            android:layout_width="217dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="100sp"
-            android:layout_marginTop="20sp"
-            android:text="Allow Alerts " />
+
 
     </LinearLayout>
 
