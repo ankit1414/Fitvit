@@ -34,7 +34,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.fitvit.Fragments.ExerciseFragment;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
@@ -233,11 +235,16 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
 
         } else if (id == R.id.nav_exercise) {
+                getSupportFragmentManager().beginTransaction().
+                        replace(R.id.clContainer, new ExerciseFragment()).commit();
 
         } else if (id == R.id.nav_share) {
+            Toast.makeText(this, "share functionality to be added soon !",
+                    Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.nav_send) {
-
+            Toast.makeText(this, "Send functionality to be added soon!",
+                    Toast.LENGTH_SHORT).show();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
