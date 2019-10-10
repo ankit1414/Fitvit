@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#000000">
+    android:background="#000000"
+    android:id="@+id/clContainer">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -24,4 +25,4 @@
     <include layout="@layout/content_main" />
 
 
-</android.support.design.widget.CoordinatorLayout>
+</android.support.design.widget.CoordinatorLayout >
