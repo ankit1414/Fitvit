@@ -1,6 +1,8 @@
 package com.example.fitvit;
 //<<<<<<< HEAD
 
+import android.app.Activity;
+import android.app.TaskStackBuilder;
 import android.graphics.Color;
 //=======
 //<<<<<<< HEAD
@@ -60,21 +62,35 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        sharedPreferences = this.getSharedPreferences("com.example.fitvit" , Context.MODE_PRIVATE);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+//        TextView username = navigationView.findViewById(R.id.username_navMenu); //this causes blast as text view in navigation header cant be accessed directly
+//        username.setText(sharedPreferences.getString("name" , "username"));
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
-        sharedPreferences = this.getSharedPreferences("com.example.fitvit" , Context.MODE_PRIVATE);
+//      method to update name in navigation header
+        View headerView = navigationView.getHeaderView(0);
+        TextView navUsername = (TextView) headerView.findViewById(R.id.username_navMenu);
+        navUsername.setText(sharedPreferences.getString("name" , "username"));
+
+
+
+
+
+
         String firstTime = sharedPreferences.getString("firstTime","yes");
         if(firstTime.equals("yes")){
-            sharedPreferences.edit().putString("firstTime","nope").apply();
+            //i will update firsttime in details activity
             Intent details = new Intent(MainActivity.this , DetailsActivity.class);
             startActivity(details);
+            finish(); // this is very imp here else if user presses back in details activity without entering details he will enter main activity but this shouldnt happen first time
 
         }
 
@@ -98,6 +114,7 @@ public class MainActivity extends AppCompatActivity
         sharedPreferences = this.getSharedPreferences("com.example.fitvit",Context.MODE_PRIVATE);
         tv_bmi.setText(sharedPreferences.getFloat("bmi" , 0)+"");
 
+
         sensor_running = true;
         Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
 
@@ -113,12 +130,15 @@ public class MainActivity extends AppCompatActivity
     protected void onPause() {
         super.onPause();
         sensor_running = false;
+
+
         //if we unregister the hardware will stop detecting steps
         //sensorManager.unregisterListener(this);
     }
 
     //funtion to generate temporary bar graph
     public void generateTemporaryGraph(){
+
 
         stepsbarchart = findViewById(R.id.steps_bargraph);
 
@@ -155,6 +175,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
+//        TextView username = findViewById(R.id.username_navMenu);
+//        sharedPreferences = this.getSharedPreferences("com.example.fitvit", Context.MODE_PRIVATE);
+//        username.setText(sharedPreferences.getString("name" , "User Name"));
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -166,6 +189,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
         return true;
     }
 
@@ -174,6 +198,9 @@ public class MainActivity extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+//        TextView username = findViewById(R.id.username_navMenu);
+//        sharedPreferences = this.getSharedPreferences("com.example.fitvit", Context.MODE_PRIVATE);
+//        username.setText(sharedPreferences.getString("name" , "User Name"));
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -184,9 +211,13 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
+
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+//        TextView username = findViewById(R.id.username_navMenu);
+//        sharedPreferences = this.getSharedPreferences("com.example.fitvit", Context.MODE_PRIVATE);
+//        username.setText(sharedPreferences.getString("name" , "User Name"));
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 

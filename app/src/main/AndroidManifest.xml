@@ -9,9 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DetailsActivity"></activity>
-        <activity android:name=".BMIActivity" />
-        <activity android:name=".water_main" />
+        <activity android:name=".DetailsActivity"
+            android:label="Sign up">
+        </activity>
+        <activity android:name=".BMIActivity"
+            android:label="BMI"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".water_main"
+            android:label="Water Reminder"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

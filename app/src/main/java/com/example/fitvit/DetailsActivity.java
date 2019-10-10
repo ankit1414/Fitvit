@@ -1,12 +1,14 @@
 package com.example.fitvit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.text.DecimalFormat;
 
@@ -50,6 +52,10 @@ public class DetailsActivity extends AppCompatActivity {
                     bmi = Float.parseFloat(df.format(bmi));
 
                     sharedPreferences.edit().putFloat("bmi" , bmi).apply();
+                    // now we will change first time to nope so that this activity will never execute again
+                    sharedPreferences.edit().putString("firstTime","nope").apply();
+                    Intent intent = new Intent(DetailsActivity.this , MainActivity.class);
+                    startActivity(intent);
                     finish();
                 }
 
