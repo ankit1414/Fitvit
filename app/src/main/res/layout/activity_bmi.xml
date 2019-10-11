@@ -25,6 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Height"
+                android:layout_gravity="center"
                 android:textSize="15sp" />
 
             <LinearLayout
@@ -39,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
-                    tools:text="173 cm" />
+                    tools:text="173 cm " />
 
                 <Button
                     android:id="@+id/edit_button_height"
@@ -62,7 +63,8 @@
                     android:layout_height="wrap_content"
                     android:hint="Height(cm)"
                     android:textSize="15sp"
-                    tools:text="173 cm" />
+                    android:inputType="numberDecimal"
+                    tools:text="173 cm " />
 
                 <Button
                     android:id="@+id/save_button_height"
@@ -85,6 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Weight"
+                android:layout_gravity="center"
                 android:textSize="15sp" />
 
             <LinearLayout
@@ -124,6 +127,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Weight(kg)"
                     android:textSize="15sp"
+                    android:inputType="numberDecimal"
                     tools:text="173 cm" />
 
                 <Button
