@@ -12,9 +12,6 @@
         <activity android:name=".DetailsActivity"
             android:label="Sign up">
         </activity>
-        <activity android:name=".BMIActivity"
-            android:label="BMI"
-            android:parentActivityName=".MainActivity"/>
         <activity android:name=".water_main"
             android:label="Water Reminder"
             android:parentActivityName=".MainActivity"/>
