@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.BmiFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0E0606"
+        android:gravity="center"
+        android:text="hii from bmi fragment"
+        android:textColor="@color/colorAccent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/colorAccent"
+        android:gravity="top"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:text="bmi"
+            android:textAllCaps="true"
+            android:textColor="#64FFDA"
+            android:textSize="20sp" />
+
+        <TextView
+
+            android:id="@+id/tv_bmi_frag"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="bottom"
+            android:textColor="#64FFDA"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+
+</FrameLayout>
