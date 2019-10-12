@@ -18,15 +18,21 @@
         <activity android:name=".water_main"
             android:label="Water Reminder"
             android:parentActivityName=".MainActivity"/>
+
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:name=".LoadingScreen"
+            android:label="Fitvit"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".MainActivity"
+            android:label="Fitvit"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
         <meta-data

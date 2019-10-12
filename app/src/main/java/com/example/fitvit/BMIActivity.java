@@ -81,14 +81,14 @@ public class BMIActivity extends AppCompatActivity {
         save_height.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!height_et.getText().toString().isEmpty() && Float.parseFloat(height_et.getText().toString()) > 0) {
+                    float newHeight = Float.parseFloat(height_et.getText().toString());
+                    sharedPreferences.edit().putFloat("heightInCm", newHeight).apply();
 
-                float newHeight = Float.parseFloat(height_et.getText().toString());
-                sharedPreferences.edit().putFloat("heightInCm" , newHeight).apply();
-
-                grp_height_edit.setVisibility(LinearLayout.VISIBLE);
-                grp_height_save.setVisibility(LinearLayout.GONE);
-                calculateBMI();
-
+                    grp_height_edit.setVisibility(LinearLayout.VISIBLE);
+                    grp_height_save.setVisibility(LinearLayout.GONE);
+                    calculateBMI();
+                }
 
             }
         });
@@ -96,12 +96,13 @@ public class BMIActivity extends AppCompatActivity {
         save_weight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                float newWeight = Float.parseFloat(weight_et.getText().toString());
-                sharedPreferences.edit().putFloat("weightInKg" , newWeight).apply();
-                grp_weight_edit.setVisibility(LinearLayout.VISIBLE);
-                grp_weight_save.setVisibility(LinearLayout.GONE);
-                calculateBMI();
+                if(!weight_et.getText().toString().isEmpty() && Float.parseFloat(weight_et.getText().toString()) > 0) {
+                    float newWeight = Float.parseFloat(weight_et.getText().toString());
+                    sharedPreferences.edit().putFloat("weightInKg", newWeight).apply();
+                    grp_weight_edit.setVisibility(LinearLayout.VISIBLE);
+                    grp_weight_save.setVisibility(LinearLayout.GONE);
+                    calculateBMI();
+                }
             }
         });
 
