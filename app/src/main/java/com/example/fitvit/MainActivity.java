@@ -230,7 +230,7 @@ public class MainActivity extends AppCompatActivity
 //            Intent bmi_intent  = new Intent(MainActivity.this,BMIActivity.class);
 //            startActivity(bmi_intent);
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.clContainer, new BmiFragment()).commit();
+                    .replace(R.id.clContainer, new BmiFragment()).addToBackStack(null).commit();
 
         } else if (id == R.id.nav_water_reminder) {
 
@@ -239,7 +239,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_exercise) {
                 getSupportFragmentManager().beginTransaction().
-                        replace(R.id.clContainer, new ExerciseFragment()).commit();
+                        replace(R.id.clContainer, new ExerciseFragment()).addToBackStack(null).commit();
 
         } else if (id == R.id.nav_share) {
             Toast.makeText(this, "share functionality to be added soon !",
