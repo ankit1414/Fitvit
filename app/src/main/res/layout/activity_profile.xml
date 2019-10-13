@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".profile">
+
+
+        <ImageButton
+            android:id="@+id/profile_img"
+            android:layout_width="150dp"
+            android:layout_height="146dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/profile" />
+
+        <!--        <EditText-->
+        <!--            android:id="@+id/etname"-->
+        <!--            android:layout_width="285dp"-->
+        <!--            android:layout_height="148dp"-->
+        <!--            android:layout_weight="3"-->
+        <!--            android:hint="Name"-->
+
+        <!--            />-->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/etname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            app:counterEnabled="true"
+            app:counterMaxLength="18"
+            app:errorEnabled="true">
+
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                android:maxLength="18" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/etstatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            app:counterEnabled="true"
+            app:counterMaxLength="45"
+            app:errorEnabled="true">
+
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Status"
+                android:inputType="textLongMessage"
+                android:maxLength="45" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <!--        <EditText-->
+        <!--            android:id="@+id/ettitle"-->
+        <!--            android:layout_width="285dp"-->
+        <!--            android:layout_height="148dp"-->
+        <!--            android:layout_weight="3"-->
+        <!--            android:hint="title" />-->
+
+        <!--        <EditText-->
+        <!--            android:id="@+id/etbio"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="60dp"-->
+        <!--            android:hint="bio" />-->
+
+        <!--        <EditText-->
+        <!--            android:id="@+id/etweight"-->
+        <!--            android:layout_width="177dp"-->
+        <!--            android:layout_height="91dp"-->
+        <!--            android:ems="10"-->
+        <!--            android:hint="Weight"-->
+        <!--            android:inputType="number" />-->
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/etweight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            app:errorEnabled="true">
+
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Weight(kg)"
+                android:inputType="numberDecimal" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <!--        <EditText-->
+        <!--            android:id="@+id/etheight"-->
+        <!--            android:layout_width="177dp"-->
+        <!--            android:layout_height="91dp"-->
+        <!--            android:ems="10"-->
+        <!--            android:hint="Height"-->
+        <!--            android:inputType="number" />-->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/etheight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            app:errorEnabled="true">
+
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Height(cm)"
+                android:inputType="numberDecimal" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <!--        <EditText-->
+        <!--            android:id="@+id/etage"-->
+        <!--            android:layout_width="177dp"-->
+        <!--            android:layout_height="91dp"-->
+        <!--            android:ems="10"-->
+        <!--            android:hint="Average step"-->
+        <!--            android:inputType="number" />-->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/etage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            app:errorEnabled="true">
+
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Age"
+                android:inputType="numberDecimal" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Average Steps"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/avgsteps_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="4375"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18sp"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BMI"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/profileBMI_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="21.64"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/darker_gray" />
+
+
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="horizontal"-->
+        <!--            android:visibility="gone">-->
+
+        <!--            <Button-->
+        <!--                android:id="@+id/btnsave"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:onClick="save"-->
+        <!--                android:text="Save" />-->
+
+        <!--            <Button-->
+        <!--                android:id="@+id/btn_retrive"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:onClick="retrive"-->
+        <!--                android:text="retrieve" />-->
+
+        <!--            <Button-->
+        <!--                android:id="@+id/btn_clear"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:onClick="clear"-->
+        <!--                android:text="clear" />-->
+
+        <!--        </LinearLayout>-->
+
+
+    </LinearLayout>
+
+</ScrollView>

@@ -16,7 +16,7 @@ public class BMIActivity extends AppCompatActivity {
 
     float weightInKg;
     float heightInCm;
-    private static DecimalFormat df = new DecimalFormat("0.00");
+    public static DecimalFormat df = new DecimalFormat("0.00");
 
     Button edit_height;
     Button edit_weight;

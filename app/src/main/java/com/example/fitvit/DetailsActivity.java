@@ -18,6 +18,7 @@ public class DetailsActivity extends AppCompatActivity {
     TextInputLayout textInputWeightInKg;
     TextInputLayout textInputHeightInCm;
     TextInputLayout textInputAge;
+    TextInputLayout textInputStatus;
     Button confirmButton;
 
     private static DecimalFormat df = new DecimalFormat("0.00");
@@ -32,6 +33,7 @@ public class DetailsActivity extends AppCompatActivity {
         textInputHeightInCm = findViewById(R.id.height_til);
         confirmButton = findViewById(R.id.confirm_button);
         textInputAge = findViewById(R.id.age_til);
+        textInputStatus = findViewById(R.id.status_til);
         sharedPreferences = this.getSharedPreferences("com.example.fitvit" , Context.MODE_PRIVATE);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
@@ -40,18 +42,20 @@ public class DetailsActivity extends AppCompatActivity {
                 String name = textInputName.getEditText().getText().toString().trim();
                 float weightInKg = Float.parseFloat(textInputWeightInKg.getEditText().getText().toString().trim());
                 float heightInCm = Float.parseFloat(textInputHeightInCm.getEditText().getText().toString().trim());
+                String status = textInputStatus.getEditText().getText().toString().trim();
                 int age = Integer.parseInt(textInputAge.getEditText().getText().toString().trim());
                 if(checks(name , weightInKg,heightInCm , age)){
 
-                    sharedPreferences.edit().putString("name" , name).apply();
-                    sharedPreferences.edit().putFloat("heightInCm" , heightInCm).apply();
-                    sharedPreferences.edit().putFloat("weightInKg" , weightInKg).apply();
-                    sharedPreferences.edit().putInt("age" , age).apply();
+                    sharedPreferences.edit().putString(ProfileActivity.NAME , name).apply();
+                    sharedPreferences.edit().putFloat(ProfileActivity.HEIGHT_IN_CM , heightInCm).apply();
+                    sharedPreferences.edit().putFloat(ProfileActivity.WEIGHT_IN_KG, weightInKg).apply();
+                    sharedPreferences.edit().putInt(ProfileActivity.AGE , age).apply();
+                    sharedPreferences.edit().putString(ProfileActivity.STATUS,status).apply();
                     float bmi = ((weightInKg)/((heightInCm*heightInCm)/(100*100)));
 
                     bmi = Float.parseFloat(df.format(bmi));
 
-                    sharedPreferences.edit().putFloat("bmi" , bmi).apply();
+                    sharedPreferences.edit().putFloat(ProfileActivity.BMI , bmi).apply();
                     // now we will change first time to nope so that this activity will never execute again
                     sharedPreferences.edit().putString("firstTime","nope").apply();
                     Intent intent = new Intent(DetailsActivity.this , MainActivity.class);
