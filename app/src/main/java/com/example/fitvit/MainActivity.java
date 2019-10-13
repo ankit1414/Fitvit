@@ -36,7 +36,7 @@ import android.view.Menu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.fitvit.Fragments.ExerciseFragment;
+//import com.example.fitvit.Fragments.ExerciseFragment;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
@@ -235,8 +235,10 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
 
         } else if (id == R.id.nav_exercise) {
-                getSupportFragmentManager().beginTransaction().
-                        replace(R.id.clContainer, new ExerciseFragment()).commit();
+            Intent i=new Intent (MainActivity.this,ExerciseActivity.class);
+            startActivity(i);
+//                getSupportFragmentManager().beginTransaction().
+//                        replace(R.id.clContainer, new ExerciseFragment()).commit();
 
         } else if (id == R.id.nav_share) {
             Toast.makeText(this, "share functionality to be added soon !",

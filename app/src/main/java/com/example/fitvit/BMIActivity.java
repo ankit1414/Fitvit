@@ -12,7 +12,10 @@ import android.widget.TextView;
 
 import java.text.DecimalFormat;
 
-public class BMIActivity extends AppCompatActivity {
+public class
+
+
+BMIActivity extends AppCompatActivity {
 
     float weightInKg;
     float heightInCm;

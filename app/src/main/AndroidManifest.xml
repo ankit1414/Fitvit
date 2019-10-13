@@ -9,18 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DetailsActivity"
-            android:label="Sign up">
-        </activity>
-        <activity android:name=".BMIActivity"
+        <activity android:name=".DetailActivity"></activity>
+        <activity android:name=".ExerciseActivity" />
+        <activity
+            android:name=".DetailsActivity"
+            android:label="Sign up" />
+        <activity
+            android:name=".BMIActivity"
             android:label="BMI"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".water_main"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".water_main"
             android:label="Water Reminder"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".NotificationActivity" />
 
-        <receiver android:name=".AlarmReceiver"/>
+        <receiver android:name=".AlarmReceiver" />
+
         <activity
             android:name=".LoadingScreen"
             android:label="Fitvit"
@@ -31,16 +36,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:label="Fitvit"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
     </application>
 
 </manifest>

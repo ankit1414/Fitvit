@@ -1,0 +1,32 @@
+{
+"girlsBenchmark" : [
+ {
+   "title": "Monday",
+   "wod": "100 Pull-ups\n100 Push-ups\n100 Sit-ups\n100 Squats\nFor Time\nComplete all reps of each exercise before moving to the next."
+ },
+ {
+   "title": "Tuesday",
+   "wod": "20 Pull-ups\n30 Push-ups\n40 Sit-ups\n50 Squats\n5 rounds for time"
+ },
+ {
+   "title": "Wednesday",
+   "wod": "5 Pull-ups\n10 Push-ups\n15 Squats\nEach min on the min for 30 min"
+ },
+ {
+   "title": "Thursday",
+   "wod": "5 Pull-ups\n10 Push-ups\n15 Squats\nAs many rounds as possible in 20 min"
+ },
+ {
+   "title": "Friday",
+   "wod": "Deadlift 225 lbs\nHandstand push-ups\n21-15-9 reps, for time"
+ },
+ {
+   "title": "Saturday",
+   "wod": "Clean 135 lbs\nRing Dips\n21-15-9 reps, for time"
+ },
+ {
+   "title": "Sunday",
+   "wod": "Thruster 95 lbs\nPull-ups\n21-15-9 reps, for time"
+ }
+]
+}
