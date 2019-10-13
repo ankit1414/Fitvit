@@ -266,4 +266,5 @@ public class MainActivity extends AppCompatActivity
     public void onAccuracyChanged(Sensor sensor, int i) {
 
     }
+
 }

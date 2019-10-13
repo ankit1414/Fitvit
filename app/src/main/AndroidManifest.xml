@@ -18,7 +18,9 @@
         <activity android:name=".water_main"
             android:label="Water Reminder"
             android:parentActivityName=".MainActivity"/>
+        <activity android:name=".NotificationActivity" />
 
+        <receiver android:name=".AlarmReceiver"/>
         <activity
             android:name=".LoadingScreen"
             android:label="Fitvit"
@@ -38,6 +40,7 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>
