@@ -36,6 +36,7 @@ import android.view.Menu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.fitvit.Fragments.BMIFragment;
 import com.example.fitvit.Fragments.ExerciseFragment;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
@@ -229,6 +230,7 @@ public class MainActivity extends AppCompatActivity
             Intent bmi_intent  = new Intent(MainActivity.this,BMIActivity.class);
             startActivity(bmi_intent);
 
+
         } else if (id == R.id.nav_water_reminder) {
 
             Intent i=new Intent (MainActivity.this,water_main.class);
@@ -236,7 +238,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_exercise) {
                 getSupportFragmentManager().beginTransaction().
-                        replace(R.id.clContainer, new ExerciseFragment()).commit();
+                        replace(R.id.clContainer, new ExerciseFragment()).addToBackStack(null).commit();
 
         } else if (id == R.id.nav_share) {
             Toast.makeText(this, "share functionality to be added soon !",

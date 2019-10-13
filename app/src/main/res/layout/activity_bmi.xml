@@ -151,9 +151,7 @@
             android:text="bmi"
             android:textAllCaps="true"
             android:textSize="30sp" />
-            android:background="#FFFFFF"
-            android:textSize="20sp"
-            android:textAllCaps="true"/>
+
 
         <TextView
             android:id="@+id/tv_bmi_bmiActivity"
